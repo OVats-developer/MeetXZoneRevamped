@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "cvcalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CVCalendar/CVCalendar",
+      "state" : {
+        "revision" : "c78d3cc52e9a1716ea243b22a0f8f5531734a6df",
+        "version" : "1.7.0"
+      }
+    }
+  ],
+  "version" : 2
+}
