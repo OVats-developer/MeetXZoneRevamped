@@ -31,16 +31,23 @@ struct AdderRow: View {
             Spacer()
             Text(data.countrycode)
         }
+        .contentShape(Rectangle())
         .padding(.horizontal)
         .onTapGesture {
             if (data.tick == false)
             {
-                let new_timezone = SavedTimeZone(context: moc)
-                new_timezone.nameofcity = data.name
-                new_timezone.timezone = data.timezone.abbreviation()
-                new_timezone.identifier = data.timezone.identifier
-                new_timezone.isFirst = false
-                do {try moc.save()} catch {fatalError()}
+                withAnimation {
+                    let new_timezone = SavedTimeZone(context: moc)
+                    new_timezone.nameofcity = data.name
+                    new_timezone.timezone = data.timezone.abbreviation()
+                    new_timezone.identifier = data.timezone.identifier
+                    new_timezone.isFirst = false
+                    do {try moc.save()} catch {fatalError()}
+                }
+            }
+            else
+            {
+                withAnimation { on_delete() }
             }
         }
     }

@@ -6,14 +6,19 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct TimeZoneAdder: View {
     
     @EnvironmentObject var searcher:searchdata
+    @Environment(\.managedObjectContext) var moc:NSManagedObjectContext
+    
     @StateObject var vm:TimeZoneAdderVM = .init()
     
     @FetchRequest var sectionA:FetchedResults<SavedTimeZone>
     @FetchRequest var sectionB:FetchedResults<SavedTimeZone>
+    
+    
     
     private var did_save = NotificationCenter.default.publisher(for: .NSManagedObjectContextObjectsDidChange)
     
@@ -31,7 +36,7 @@ struct TimeZoneAdder: View {
             List {
                 ForEach(searcher.searchdata) {val in
                     AdderRow(data: val, on_delete: {
-                        
+                        vm.onDelete(val: val, moc: moc)
                     })
                         .onAppear {
                             vm.cache_append(val: val)

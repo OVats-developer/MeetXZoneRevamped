@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 
 class TimeZoneAdderVM:ObservableObject {
@@ -52,26 +53,51 @@ class TimeZoneAdderVM:ObservableObject {
     func check_val(val:searchdata_row)
     {
         if (self.initialized == false) {return}
-        for refA in sectionA {
-            if (val.name == refA.nameofcity ?? "") {val.tick = true; return;}
-        }
-        
-        for refB in sectionB {
-            if (val.name == refB.nameofcity ?? "") {val.tick = true; return;}
-        }
+        looping_val(val: val)
     }
-    
     
     func check_cache()
     {
         if (self.initialized == false) {return}
         for val in cache {
-            for refA in sectionA {
-                if (val.name == refA.nameofcity ?? "") {val.tick = true; break;}
+            looping_val(val: val)
+        }
+    }
+    
+    func looping_val(val:searchdata_row)
+    {
+        for refA in sectionA {
+            if (val.name == refA.nameofcity ?? "") {
+                withAnimation { val.tick = true;}
+                return;
             }
-            
-            for refB in sectionB {
-                if (val.name == refB.nameofcity ?? "") {val.tick = true; break;}
+        }
+        
+        for refB in sectionB {
+            if (val.name == refB.nameofcity ?? "") {
+                withAnimation { val.tick = true;}
+                return;
+            }
+        }
+        
+        withAnimation { val.tick = false;}
+    }
+    
+    func onDelete(val:searchdata_row, moc:NSManagedObjectContext)
+    {
+        for refA in sectionA {
+            if (val.name == refA.nameofcity ?? "") {
+                moc.delete(refA)
+                do {try moc.save()} catch {fatalError()}
+                return
+            }
+        }
+        
+        for refB in sectionB {
+            if (val.name == refB.nameofcity ?? "") {
+                moc.delete(refB)
+                do {try moc.save()} catch {fatalError()}
+                return
             }
         }
     }
