@@ -32,6 +32,26 @@ struct TimeZoneAdder: View {
     
     
     var body: some View {
+        if #available(iOS 16, macOS 13, *)
+        {
+            NavigationStack {
+                main_body().navigationTitle("Time Zone Adder")
+            }
+        }
+        else
+        {
+            NavigationView {
+                main_body()
+            }.navigationViewStyle(.stack)
+        }
+    }
+}
+
+
+extension TimeZoneAdder {
+    @ViewBuilder
+    func main_body() -> some View
+    {
         GeometryReader {reader in
             List {
                 ForEach(searcher.searchdata) {val in
@@ -52,6 +72,7 @@ struct TimeZoneAdder: View {
                 vm.contextChange(sectionA: sectionA, sectionB: sectionB)
             }
         }
+
     }
 }
 

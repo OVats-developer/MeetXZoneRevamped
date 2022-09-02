@@ -27,6 +27,7 @@ struct SideBarWrapper: View {
     var body: some View {
         ZStack {
             SideBar(sectionA, sectionB, $testing)
+                .navigationTitle("Meet - X - Zone")
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {

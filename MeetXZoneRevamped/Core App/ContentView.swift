@@ -27,7 +27,7 @@ struct ContentView: View {
             NavigationSplitView(sidebar: {
                 SideBarWrapper()
             }, detail: {
-                Text("Detail")
+                DetailView()
             })
             .navigationSplitViewStyle(.balanced)
             .sheet(isPresented: $presenter.show_adder) {
