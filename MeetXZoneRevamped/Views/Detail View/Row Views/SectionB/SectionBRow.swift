@@ -9,18 +9,21 @@ import SwiftUI
 
 struct SectionBRow: View {
     
+    var height:CGFloat
+    
     var calendar:Calendar = .current
     var b_tz:TimeZone = .current
     var r_tz:TimeZone
-
+    
     var selected_date:Date = .init()
     
     var df:DateFormatter
     
     var values:[String]
     
-    init(r_tz:TimeZone) {
+    init(r_tz:TimeZone, height: CGFloat) {
         self.r_tz = r_tz
+        self.height = height
         
         df = .init()
         df.timeZone = r_tz
@@ -36,19 +39,35 @@ struct SectionBRow: View {
     }
     
     var body: some View {
-        ScrollView(.horizontal) {
-            HStack(spacing:0) {
-                ForEach(0..<24) {val in
-                    SectionBCell(working_hour: false,
-                                 label: values[val])
-                }
-            }.frame(width: 100 * 24, height: 40)
+        HStack(spacing:0) {
+            ForEach(0..<24) {val in
+                SectionBCell(working_hour: false,
+                             label: values[val], height: height)
+            }
         }
     }
 }
 
-struct Testing_Previews: PreviewProvider {
+struct SectionBRowPreview:PreviewProvider {
+    
     static var previews: some View {
-        DetailView()
+        testing()
+    }
+}
+
+struct testing:View {
+    
+    @State var offset:CGFloat = 0
+    
+    var body: some View {
+        VStack(spacing:0) {
+            
+            UI_ScrollView(offset: $offset, content: {
+                SectionBRow(r_tz: .init(abbreviation: "GMT+1")!, height: 50)
+            }, height: 60)
+            
+            UI_ScrollView(offset: $offset, content: {
+                SectionBRow(r_tz: .init(abbreviation: "GMT+1")!, height: 50)
+            }, height: 60)        }
     }
 }

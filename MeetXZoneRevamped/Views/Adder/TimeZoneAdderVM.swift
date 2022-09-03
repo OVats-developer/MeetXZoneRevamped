@@ -88,7 +88,7 @@ class TimeZoneAdderVM:ObservableObject {
         for refA in sectionA {
             if (val.name == refA.nameofcity ?? "") {
                 moc.delete(refA)
-                do {try moc.save()} catch {fatalError()}
+                save(moc)
                 return
             }
         }
@@ -96,9 +96,34 @@ class TimeZoneAdderVM:ObservableObject {
         for refB in sectionB {
             if (val.name == refB.nameofcity ?? "") {
                 moc.delete(refB)
-                do {try moc.save()} catch {fatalError()}
+                save(moc)
                 return
             }
         }
+    }
+    
+    
+    func update_sectionA(val:searchdata_row, moc:NSManagedObjectContext)
+    {
+        for val in sectionA {
+            moc.delete(val)
+        }
+        
+        for cd_val in sectionB {
+            if (val.name == cd_val.nameofcity) {cd_val.isFirst = true; save(moc); return;}
+        }
+        
+        let reference = SavedTimeZone(context: moc)
+        reference.nameofcity = val.name
+        reference.isFirst = true
+        reference.timezone = val.timezone.abbreviation()
+        reference.identifier = val.timezone.identifier
+        
+        save(moc)
+    }
+    
+    func save(_ moc:NSManagedObjectContext)
+    {
+        do {try moc.save()} catch {fatalError()}
     }
 }

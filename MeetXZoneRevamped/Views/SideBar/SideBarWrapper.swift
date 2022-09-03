@@ -35,7 +35,6 @@ struct SideBarWrapper: View {
                         } label: {
                             Image(systemName: "plus").resizable()
                         }
-                        
                     }
                 }
             
@@ -47,7 +46,7 @@ struct SideBarWrapper: View {
                     VStack(spacing:0) {
                         Spacer()
                         SideBarNavButton(width: width,
-                                         show: (sectionA.count + sectionB.count > 1))
+                                         show: ((sectionA.count >= 1) &&  (sectionB.count >= 1)))
                         .onTapGesture {
                             testing = true
                         }

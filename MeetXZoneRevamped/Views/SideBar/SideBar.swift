@@ -12,7 +12,7 @@ struct SideBar: View {
     
     var sectionA:FetchedResults<SavedTimeZone>
     var sectionB:FetchedResults<SavedTimeZone>
-    
+        
     @Environment(\.managedObjectContext) var moc:NSManagedObjectContext
     
     @Binding var selection:Bool?
@@ -39,7 +39,23 @@ struct SideBar: View {
                 .onDelete(perform: {onDelete($0, false)})
             }
         }
+        .onAppear {
+            pruning()
+        }
+        
     }
+    
+    func pruning()
+    {
+        while(sectionA.count > 1)
+        {
+            let object = sectionA.last!
+            moc.delete(object)
+        }
+        do {try moc.save()}
+        catch {fatalError()}
+    }
+
 }
 
 extension SideBar {

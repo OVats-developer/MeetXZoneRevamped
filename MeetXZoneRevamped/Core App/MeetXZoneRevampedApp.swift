@@ -14,14 +14,13 @@ struct MeetXZoneRevampedApp: App {
     @StateObject var calendar:calendardata = .init()
     @StateObject var presenter:PresenterManager = .init()
     
-    var container:cd_container = .init()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(searcher)
                 .environmentObject(presenter)
-                .environment(\.managedObjectContext, container.context)
+                .environment(\.managedObjectContext, cd_container.context)
         }
     }
 }

@@ -52,6 +52,11 @@ class searchdata:ObservableObject {
                 return
             }
             
+            if (searchtext == "") {
+                await MainActor.run { self.searchdata = totaldata}
+                return
+            }
+
             let local_search = totaldata.filter({ row in
                 if (row.name.localizedStandardContains(searchtext)) {return true}
                 if (row.countrycode.localizedStandardContains(searchtext)) {return true}

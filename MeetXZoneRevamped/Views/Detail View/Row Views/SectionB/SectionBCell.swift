@@ -12,35 +12,63 @@ struct SectionBCell: View {
     var working_hour:Bool
     var label:String
     
+    var height:CGFloat
+    
     var body: some View {
         ZStack {
             if (working_hour)
             {
                 Color.init(red: 0.3, green: 0.7, blue: 1, opacity: 0.75)
             }
-            else
+            
+            HStack(spacing:0)
             {
-                Color.gray.opacity(0.4)
-            }
-            HStack {
-                Divider()
                 Spacer()
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .frame(width: 2, height: 15)
+                    Spacer()
+                }
+                
+                Spacer()
+                
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .frame(width: 3, height: 20)
+                    Spacer()
+                }
+                
+                Spacer()
+                
+                VStack(spacing: 0) {
+                    Rectangle()
+                        .frame(width: 2, height: 15)
+                    Spacer()
+                }
+
+                Spacer()
+            }.frame(width: 100, height: height)
+            
+            HStack(spacing:0) {
+                Rectangle()
+                    .frame(width: 2, height: height)
                 Text(label)
-                    .fontWeight(.bold)
-                Spacer()
+                    .fontWeight(.black)
+                    .frame(width: 96, height: height)
+                Rectangle()
+                    .frame(width: 2, height: height)
                 Divider()
             }
-            .contentShape(Rectangle())
+
         }
-        .cornerRadius(3)
-        .padding(.horizontal, 1)
-        .frame(width: 100, height:40)
+        .contentShape(Rectangle())
+        .frame(width: 100, height:height)
     }
 }
 
 struct DetailRowCell_Previews: PreviewProvider {
     static var previews: some View {
-        SectionBCell(working_hour: true,
-                  label: "11:00")
+        SectionBCell(working_hour: false,
+                     label: "11:00", height: 60)
     }
 }

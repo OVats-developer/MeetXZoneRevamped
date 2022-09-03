@@ -20,25 +20,27 @@ struct UI_ScrollView:UIViewRepresentable {
     
     init<Content:View>(offset:Binding<CGFloat>,
                        @ViewBuilder content: () -> Content,
-                       width:CGFloat,
                        height:CGFloat)
     {
         self._offset = offset
-        mainview = UIScrollView()
-        mainview.contentSize = CGSize(width: width, height: height)
+        
+        self.mainview = .init()
         mainview.translatesAutoresizingMaskIntoConstraints = false
+        mainview.contentSize = .init(width: 2400, height: height)
         
         let hoster = UIHostingController(rootView: content())
         let view = hoster.view!
         view.translatesAutoresizingMaskIntoConstraints = false
+        
         mainview.addSubview(view)
         view.topAnchor.constraint(equalTo: mainview.topAnchor).isActive = true
-
     }
     
     func makeUIView(context: Context) -> UIScrollView {
         mainview.contentOffset.x = offset
         mainview.delegate = context.coordinator
+        mainview.showsHorizontalScrollIndicator = false
+        mainview.showsVerticalScrollIndicator = false
         return mainview
     }
     

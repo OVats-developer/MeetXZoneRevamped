@@ -14,7 +14,7 @@ struct AdderRow: View {
     @Environment(\.managedObjectContext) var moc:NSManagedObjectContext
     
     var on_delete:() -> ()
-    
+    var make_reference: () -> ()
     
     var body: some View {
         HStack(spacing:0) {
@@ -34,22 +34,31 @@ struct AdderRow: View {
         .contentShape(Rectangle())
         .padding(.horizontal)
         .onTapGesture {
-            if (data.tick == false)
+            if (data.tick == false) { add_timezone() }
+            else { withAnimation { on_delete() } }
+        }
+        .contextMenu {
+            VStack(spacing:0)
             {
-                withAnimation {
-                    let new_timezone = SavedTimeZone(context: moc)
-                    new_timezone.nameofcity = data.name
-                    new_timezone.timezone = data.timezone.abbreviation()
-                    new_timezone.identifier = data.timezone.identifier
-                    new_timezone.isFirst = false
-                    do {try moc.save()} catch {fatalError()}
-                }
-            }
-            else
-            {
-                withAnimation { on_delete() }
+                if (data.tick) { Button { withAnimation {  on_delete() } } label: {Text("Delete Time Zone")} }
+                else { Button { add_timezone() } label: { Text("Add Time Zone")} }
+                
+                Button(action: {make_reference()}, label: {Text("Make Reference Time Zone")})
             }
         }
+    }
+    
+    func add_timezone()
+    {
+        withAnimation {
+            let new_timezone = SavedTimeZone(context: moc)
+            new_timezone.nameofcity = data.name
+            new_timezone.timezone = data.timezone.abbreviation()
+            new_timezone.identifier = data.timezone.identifier
+            new_timezone.isFirst = false
+            do {try moc.save()} catch {fatalError()}
+        }
+        
     }
 }
 

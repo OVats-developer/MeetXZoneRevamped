@@ -5,7 +5,7 @@
 //  Created by Oshin Vats on 31/08/2022.
 //
 
-import SwiftUI
+import SwiftUI 
 import CoreData
 
 struct TimeZoneAdder: View {
@@ -18,6 +18,7 @@ struct TimeZoneAdder: View {
     @FetchRequest var sectionA:FetchedResults<SavedTimeZone>
     @FetchRequest var sectionB:FetchedResults<SavedTimeZone>
     
+    @State var searchtext:String = ""
     
     
     private var did_save = NotificationCenter.default.publisher(for: .NSManagedObjectContextObjectsDidChange)
@@ -57,27 +58,25 @@ extension TimeZoneAdder {
                 ForEach(searcher.searchdata) {val in
                     AdderRow(data: val, on_delete: {
                         vm.onDelete(val: val, moc: moc)
-                    })
-                        .onAppear {
-                            vm.cache_append(val: val)
-                            vm.check_val(val: val)
-                        }
-                        .onDisappear { vm.cache_remove(val: val) }
+                    }, make_reference: { vm.update_sectionA(val: val, moc: moc) })
+                    .onAppear {
+                        vm.cache_append(val: val)
+                        vm.check_val(val: val)
+                    }
+                    .onDisappear { vm.cache_remove(val: val) }
                 }
-            }
+            }.searchable(text: $searchtext)
             .onAppear {
                 vm.setup(sectionA, sectionB)
             }
+            .onChange(of: searchtext, perform: { newValue in
+                searcher.searching(searchtext: newValue)
+            })
             .onReceive(did_save) { _ in
                 vm.contextChange(sectionA: sectionA, sectionB: sectionB)
             }
         }
-
+        
     }
 }
 
-struct TimeZoneAdder_Previews: PreviewProvider {
-    static var previews: some View {
-        TimeZoneAdder().environmentObject(searchdata())
-    }
-}

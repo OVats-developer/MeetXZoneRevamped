@@ -104,6 +104,7 @@
 			children = (
 				2402165E286A0C7C00756034 /* MeetXZoneRevamped.entitlements */,
 				2402165F286A0C7C00756034 /* Preview Content */,
+				24C6A6C72870C4D500DE248E /* Core Data */,
 				24C6A6C62870BE6200DE248E /* Core App */,
 				24C6A6C52870BE4F00DE248E /* Data */,
 				24C6A6C02870BDDA00DE248E /* Views */,
@@ -153,7 +154,6 @@
 			children = (
 				24C2F473287B44EE00A82CC5 /* CalendarData.swift */,
 				24D47B37286FA9B300E9C4E8 /* searchdata.swift */,
-				24C6A6C72870C4D500DE248E /* Core Data */,
 				24D47B35286FA88B00E9C4E8 /* cities15000.txt */,
 			);
 			path = Data;
