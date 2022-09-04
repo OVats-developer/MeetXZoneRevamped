@@ -29,7 +29,7 @@ struct AdderRow: View {
             
             Text(data.name)
             Spacer()
-            Text(data.countrycode)
+            Text(data.timezone.abbreviation()!)
         }
         .contentShape(Rectangle())
         .padding(.horizontal)

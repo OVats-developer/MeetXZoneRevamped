@@ -20,7 +20,7 @@ struct SideBarWrapper: View {
     init()
     {
         _sectionA = FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "isFirst == true"))
-        _sectionB = FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "isFirst == false"))
+        _sectionB = FetchRequest(sortDescriptors: [.init(key: "order_no", ascending: true)], predicate: NSPredicate(format: "isFirst == false"))
     }
     
     
@@ -34,6 +34,14 @@ struct SideBarWrapper: View {
                             presenter.show_adder = true
                         } label: {
                             Image(systemName: "plus").resizable()
+                        }
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        Button {
+                            presenter.show_adder = true
+                        } label: {
+                            Image(systemName: "clock.circle").resizable()
                         }
                     }
                 }

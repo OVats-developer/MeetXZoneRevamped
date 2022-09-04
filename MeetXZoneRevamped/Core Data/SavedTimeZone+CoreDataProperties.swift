@@ -2,13 +2,12 @@
 //  SavedTimeZone+CoreDataProperties.swift
 //  MeetXZoneRevamped
 //
-//  Created by Oshin Vats on 04/07/2022.
+//  Created by Oshin Vats on 03/09/2022.
 //
 //
 
 import Foundation
 import CoreData
-import UniformTypeIdentifiers
 
 
 extension SavedTimeZone {
@@ -21,10 +20,10 @@ extension SavedTimeZone {
     @NSManaged public var isFirst: Bool
     @NSManaged public var nameofcity: String?
     @NSManaged public var timezone: String?
+    @NSManaged public var order_no: Float
 
 }
 
 extension SavedTimeZone : Identifiable {
 
 }
-

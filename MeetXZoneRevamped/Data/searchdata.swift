@@ -46,7 +46,7 @@ class searchdata:ObservableObject {
     
     func searching(searchtext:String)
     {
-        Task(priority: .userInitiated) {
+        Task(priority: .medium) {
             if (searchtext.isEmpty) {
                 await MainActor.run { self.searchdata = totaldata}
                 return

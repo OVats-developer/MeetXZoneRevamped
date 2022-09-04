@@ -20,8 +20,10 @@ struct DetailView: View {
     @FetchRequest var sectionB:FetchedResults<SavedTimeZone>
 
     init() {
-        _sectionA = FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "isFirst == true"))
-        _sectionB = FetchRequest(sortDescriptors: [], predicate: NSPredicate(format: "isFirst == false"))
+        _sectionA = FetchRequest(sortDescriptors: [],
+                                 predicate: NSPredicate(format: "isFirst == true"))
+        _sectionB = FetchRequest(sortDescriptors: [.init(key: "order_no", ascending: true)],
+                                 predicate: NSPredicate(format: "isFirst == false"))
     }
     
     var body: some View {
@@ -32,6 +34,7 @@ struct DetailView: View {
         else
         {
             VStack {
+                DatePicker("Selected Date", selection: $selected_date, displayedComponents: [.date])
                 mainview()
             }
         }
@@ -45,7 +48,7 @@ struct DetailView: View {
         
         Section(topname) {
             UI_ScrollView(offset: $offset, content: {
-                SectionBRow(r_tz: topzone, height: height)
+                SectionBRow(r_tz: topzone, height: height, date: $selected_date)
             }, height: height)
         }.frame(height:height)
 
@@ -56,7 +59,7 @@ struct DetailView: View {
             
             Section(section_name) {
                 UI_ScrollView(offset: $offset, content: {
-                    SectionBRow(r_tz: tz, height: height)
+                    SectionBRow(r_tz: tz, height: height, date: $selected_date)
                 }, height: height)
             }
             .listRowInsets(EdgeInsets())

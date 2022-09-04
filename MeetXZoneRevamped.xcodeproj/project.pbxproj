@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2400585528C512DB0096FB7F /* TimeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400585428C512DB0096FB7F /* TimeManager.swift */; };
+		2400585728C5144A0096FB7F /* SampleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2400585628C5144A0096FB7F /* SampleRow.swift */; };
 		24015EB028C0F193008412A1 /* AdderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24015EAF28C0F193008412A1 /* AdderRow.swift */; };
 		24021659286A0C7B00756034 /* MeetXZoneRevampedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24021658286A0C7B00756034 /* MeetXZoneRevampedApp.swift */; };
 		2402165D286A0C7C00756034 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2402165C286A0C7C00756034 /* Assets.xcassets */; };
 		24021661286A0C7C00756034 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24021660286A0C7C00756034 /* Preview Assets.xcassets */; };
 		2411E32628C0C9E40062781E /* PresenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2411E32528C0C9E40062781E /* PresenterManager.swift */; };
 		24146B9B28C2517D00CC86C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24146B9A28C2517D00CC86C9 /* DetailView.swift */; };
+		241EDC1828C5236100AD1F47 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241EDC1728C5236100AD1F47 /* CustomPicker.swift */; };
 		242CCD9B28C240D800473CD3 /* UI_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242CCD9A28C240D800473CD3 /* UI_ScrollView.swift */; };
+		242DD2A828C565E500311BD7 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DD2A728C565E500311BD7 /* SampleCell.swift */; };
 		243FB0BE28C22EC4006EBA3C /* SideBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 243FB0BD28C22EC4006EBA3C /* SideBarWrapper.swift */; };
 		24513EB228C0169400F51F00 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB128C0169400F51F00 /* SideBar.swift */; };
 		24513EB428C0173D00F51F00 /* SideBarNavButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24513EB328C0173D00F51F00 /* SideBarNavButton.swift */; };
 		247C13C9287355AF00498F02 /* TimeZoneV3.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 247C13C7287355AF00498F02 /* TimeZoneV3.xcdatamodeld */; };
-		247C13CC287355EB00498F02 /* SavedTimeZone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C13CA287355EB00498F02 /* SavedTimeZone+CoreDataClass.swift */; };
-		247C13CD287355EB00498F02 /* SavedTimeZone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C13CB287355EB00498F02 /* SavedTimeZone+CoreDataProperties.swift */; };
 		247C13D12873594300498F02 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247C13D02873594300498F02 /* Container.swift */; };
 		2496B7F928C01C4100B7FC0A /* TimeZoneAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2496B7F828C01C4100B7FC0A /* TimeZoneAdder.swift */; };
 		24C2F474287B44EE00A82CC5 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C2F473287B44EE00A82CC5 /* CalendarData.swift */; };
 		24C6A6C42870BE3900DE248E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24C6A6C32870BE3900DE248E /* ContentView.swift */; };
+		24CAFE1028C3D9DE006ADAC1 /* SavedTimeZone+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CAFE0E28C3D9DE006ADAC1 /* SavedTimeZone+CoreDataClass.swift */; };
+		24CAFE1128C3D9DE006ADAC1 /* SavedTimeZone+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CAFE0F28C3D9DE006ADAC1 /* SavedTimeZone+CoreDataProperties.swift */; };
 		24D47B36286FA88B00E9C4E8 /* cities15000.txt in Resources */ = {isa = PBXBuildFile; fileRef = 24D47B35286FA88B00E9C4E8 /* cities15000.txt */; };
 		24D47B38286FA9B300E9C4E8 /* searchdata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D47B37286FA9B300E9C4E8 /* searchdata.swift */; };
 		24DBA5C628C2571B002FD912 /* SectionBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DBA5C528C2571B002FD912 /* SectionBCell.swift */; };
@@ -34,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2400585428C512DB0096FB7F /* TimeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManager.swift; sourceTree = "<group>"; };
+		2400585628C5144A0096FB7F /* SampleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRow.swift; sourceTree = "<group>"; };
 		24015EAF28C0F193008412A1 /* AdderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdderRow.swift; sourceTree = "<group>"; };
 		24021655286A0C7B00756034 /* MeetXZoneRevamped.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetXZoneRevamped.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24021658286A0C7B00756034 /* MeetXZoneRevampedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetXZoneRevampedApp.swift; sourceTree = "<group>"; };
@@ -42,17 +48,20 @@
 		24021660286A0C7C00756034 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2411E32528C0C9E40062781E /* PresenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterManager.swift; sourceTree = "<group>"; };
 		24146B9A28C2517D00CC86C9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		241EDC1728C5236100AD1F47 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		242CCD9A28C240D800473CD3 /* UI_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_ScrollView.swift; sourceTree = "<group>"; };
+		242DD2A728C565E500311BD7 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
 		243FB0BD28C22EC4006EBA3C /* SideBarWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarWrapper.swift; sourceTree = "<group>"; };
 		24513EB128C0169400F51F00 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		24513EB328C0173D00F51F00 /* SideBarNavButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarNavButton.swift; sourceTree = "<group>"; };
 		247C13C8287355AF00498F02 /* TimeZoneV3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeZoneV3.xcdatamodel; sourceTree = "<group>"; };
-		247C13CA287355EB00498F02 /* SavedTimeZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedTimeZone+CoreDataClass.swift"; sourceTree = "<group>"; };
-		247C13CB287355EB00498F02 /* SavedTimeZone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedTimeZone+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		247C13D02873594300498F02 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		2496B7F828C01C4100B7FC0A /* TimeZoneAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneAdder.swift; sourceTree = "<group>"; };
 		24C2F473287B44EE00A82CC5 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		24C6A6C32870BE3900DE248E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		24CAFE0D28C3D6A0006ADAC1 /* TimeZoneV3.01.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TimeZoneV3.01.xcdatamodel; sourceTree = "<group>"; };
+		24CAFE0E28C3D9DE006ADAC1 /* SavedTimeZone+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedTimeZone+CoreDataClass.swift"; sourceTree = "<group>"; };
+		24CAFE0F28C3D9DE006ADAC1 /* SavedTimeZone+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SavedTimeZone+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		24D47B35286FA88B00E9C4E8 /* cities15000.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cities15000.txt; sourceTree = "<group>"; };
 		24D47B37286FA9B300E9C4E8 /* searchdata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchdata.swift; sourceTree = "<group>"; };
 		24DBA5C528C2571B002FD912 /* SectionBCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBCell.swift; sourceTree = "<group>"; };
@@ -73,6 +82,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2400585328C512C80096FB7F /* Time Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2400585428C512DB0096FB7F /* TimeManager.swift */,
+				242DD2A628C565DA00311BD7 /* Sample */,
+				241EDC1728C5236100AD1F47 /* CustomPicker.swift */,
+			);
+			path = "Time Manager";
+			sourceTree = "<group>";
+		};
 		24015EAE28C0F181008412A1 /* Adder */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +124,8 @@
 				2402165E286A0C7C00756034 /* MeetXZoneRevamped.entitlements */,
 				2402165F286A0C7C00756034 /* Preview Content */,
 				24C6A6C72870C4D500DE248E /* Core Data */,
+				24DBA5CA28C25B85002FD912 /* Extensions */,
+				2402165C286A0C7C00756034 /* Assets.xcassets */,
 				24C6A6C62870BE6200DE248E /* Core App */,
 				24C6A6C52870BE4F00DE248E /* Data */,
 				24C6A6C02870BDDA00DE248E /* Views */,
@@ -129,6 +150,15 @@
 			path = "Detail View";
 			sourceTree = "<group>";
 		};
+		242DD2A628C565DA00311BD7 /* Sample */ = {
+			isa = PBXGroup;
+			children = (
+				2400585628C5144A0096FB7F /* SampleRow.swift */,
+				242DD2A728C565E500311BD7 /* SampleCell.swift */,
+			);
+			path = Sample;
+			sourceTree = "<group>";
+		};
 		24513EAE28C0155F00F51F00 /* SideBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +172,7 @@
 		24C6A6C02870BDDA00DE248E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2400585328C512C80096FB7F /* Time Manager */,
 				242CCD9928C23F6B00473CD3 /* Detail View */,
 				24015EAE28C0F181008412A1 /* Adder */,
 				24513EAE28C0155F00F51F00 /* SideBar */,
@@ -162,10 +193,8 @@
 		24C6A6C62870BE6200DE248E /* Core App */ = {
 			isa = PBXGroup;
 			children = (
-				24DBA5CA28C25B85002FD912 /* Extensions */,
 				24C6A6C32870BE3900DE248E /* ContentView.swift */,
 				24021658286A0C7B00756034 /* MeetXZoneRevampedApp.swift */,
-				2402165C286A0C7C00756034 /* Assets.xcassets */,
 				2411E32528C0C9E40062781E /* PresenterManager.swift */,
 			);
 			path = "Core App";
@@ -174,8 +203,8 @@
 		24C6A6C72870C4D500DE248E /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				247C13CA287355EB00498F02 /* SavedTimeZone+CoreDataClass.swift */,
-				247C13CB287355EB00498F02 /* SavedTimeZone+CoreDataProperties.swift */,
+				24CAFE0E28C3D9DE006ADAC1 /* SavedTimeZone+CoreDataClass.swift */,
+				24CAFE0F28C3D9DE006ADAC1 /* SavedTimeZone+CoreDataProperties.swift */,
 				247C13C7287355AF00498F02 /* TimeZoneV3.xcdatamodeld */,
 				247C13D02873594300498F02 /* Container.swift */,
 			);
@@ -287,22 +316,26 @@
 			files = (
 				24513EB228C0169400F51F00 /* SideBar.swift in Sources */,
 				24DBA5CC28C25B92002FD912 /* DateExtension.swift in Sources */,
+				2400585528C512DB0096FB7F /* TimeManager.swift in Sources */,
 				24FDF2E828C1882400D4B1FD /* TimeZoneAdderVM.swift in Sources */,
+				2400585728C5144A0096FB7F /* SampleRow.swift in Sources */,
+				242DD2A828C565E500311BD7 /* SampleCell.swift in Sources */,
 				24146B9B28C2517D00CC86C9 /* DetailView.swift in Sources */,
 				24DBA5C928C25926002FD912 /* SectionBRow.swift in Sources */,
 				2411E32628C0C9E40062781E /* PresenterManager.swift in Sources */,
+				24CAFE1128C3D9DE006ADAC1 /* SavedTimeZone+CoreDataProperties.swift in Sources */,
 				2496B7F928C01C4100B7FC0A /* TimeZoneAdder.swift in Sources */,
 				24DBA5C628C2571B002FD912 /* SectionBCell.swift in Sources */,
 				24015EB028C0F193008412A1 /* AdderRow.swift in Sources */,
 				242CCD9B28C240D800473CD3 /* UI_ScrollView.swift in Sources */,
 				24C2F474287B44EE00A82CC5 /* CalendarData.swift in Sources */,
-				247C13CD287355EB00498F02 /* SavedTimeZone+CoreDataProperties.swift in Sources */,
+				241EDC1828C5236100AD1F47 /* CustomPicker.swift in Sources */,
 				24D47B38286FA9B300E9C4E8 /* searchdata.swift in Sources */,
-				247C13CC287355EB00498F02 /* SavedTimeZone+CoreDataClass.swift in Sources */,
 				24021659286A0C7B00756034 /* MeetXZoneRevampedApp.swift in Sources */,
 				243FB0BE28C22EC4006EBA3C /* SideBarWrapper.swift in Sources */,
 				247C13D12873594300498F02 /* Container.swift in Sources */,
 				24C6A6C42870BE3900DE248E /* ContentView.swift in Sources */,
+				24CAFE1028C3D9DE006ADAC1 /* SavedTimeZone+CoreDataClass.swift in Sources */,
 				247C13C9287355AF00498F02 /* TimeZoneV3.xcdatamodeld in Sources */,
 				24513EB428C0173D00F51F00 /* SideBarNavButton.swift in Sources */,
 			);
@@ -536,9 +569,10 @@
 		247C13C7287355AF00498F02 /* TimeZoneV3.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				24CAFE0D28C3D6A0006ADAC1 /* TimeZoneV3.01.xcdatamodel */,
 				247C13C8287355AF00498F02 /* TimeZoneV3.xcdatamodel */,
 			);
-			currentVersion = 247C13C8287355AF00498F02 /* TimeZoneV3.xcdatamodel */;
+			currentVersion = 24CAFE0D28C3D6A0006ADAC1 /* TimeZoneV3.01.xcdatamodel */;
 			path = TimeZoneV3.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

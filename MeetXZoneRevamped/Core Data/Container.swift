@@ -14,6 +14,8 @@ class cd_container:NSObject, ObservableObject {
     static var container:NSPersistentCloudKitContainer = {
         let container = NSPersistentCloudKitContainer(name: "TimeZoneV3")
         container.loadPersistentStores { descrption, err in
+            descrption.shouldMigrateStoreAutomatically = true
+            descrption.shouldInferMappingModelAutomatically = true
             if (err != nil) {fatalError()}
         }
         container.viewContext.automaticallyMergesChangesFromParent = true

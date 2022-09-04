@@ -36,6 +36,14 @@ struct SideBar: View {
                 ForEach(sectionB) {val in
                     Text(val.nameofcity ?? "")
                 }
+                .onMove(perform: { source, destination in
+                    var temparr:[SavedTimeZone] = sectionB.sorted(by: {$0.order_no < $1.order_no})
+                    temparr.move(fromOffsets: source, toOffset: destination)
+                    for i in 0..<temparr.count {temparr[i].order_no = Float(i)}
+                    do {try moc.save()}
+                    catch {fatalError()}
+
+                })
                 .onDelete(perform: {onDelete($0, false)})
             }
         }
@@ -54,6 +62,7 @@ struct SideBar: View {
         }
         do {try moc.save()}
         catch {fatalError()}
+
     }
 
 }

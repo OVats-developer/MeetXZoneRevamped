@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct SectionBCell: View {
+struct SampleCell: View {
     
     var color_width:CGFloat
+    var color:Color
+    
     var left_sided:Bool
     
     var label:String
@@ -20,8 +22,7 @@ struct SectionBCell: View {
         ZStack {
             HStack (spacing:0) {
                 if (!left_sided) {Spacer()}
-                Color.init(red: 0.3, green: 0.7, blue: 1, opacity: 0.75)
-                    .frame(width: 100 * color_width)
+                color.frame(width: 100 * color_width)
                 if (left_sided) {Spacer()}
             }.frame(width: 100, height: height)
             
@@ -67,16 +68,5 @@ struct SectionBCell: View {
         }
         .contentShape(Rectangle())
         .frame(width: 100, height:height)
-    }
-}
-
-struct DetailRowCell_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        SectionBCell(color_width: 0.5,
-                     left_sided: true,
-                     label: "11:00",
-                     height: 60)
-        
     }
 }

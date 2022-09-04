@@ -15,59 +15,30 @@ struct SectionBRow: View {
     var b_tz:TimeZone = .current
     var r_tz:TimeZone
     
-    var selected_date:Date = .init()
+    @Binding var selected_date:Date
     
     var df:DateFormatter
     
-    var values:[String]
     
-    init(r_tz:TimeZone, height: CGFloat) {
+    init(r_tz:TimeZone, height: CGFloat, date:Binding<Date>) {
         self.r_tz = r_tz
         self.height = height
+        self._selected_date = date
         
         df = .init()
         df.timeZone = r_tz
         df.dateFormat = "HH:mm"
         
-        var local_array:[String] = []
-        
-        for i in 0..<24 {
-            let converted_date = calendar.dateBySetting(timeZone: r_tz, of: selected_date, hour: i)
-            local_array.append(df.string(from: converted_date))
-        }
-        self.values = local_array
     }
     
     var body: some View {
         HStack(spacing:0) {
             ForEach(0..<24) {val in
-                SectionBCell(working_hour: false,
-                             label: values[val], height: height)
+                let converted_date = calendar.dateBySetting(timeZone: r_tz, of: selected_date, hour: val)
+                let label = df.string(from: converted_date)
+                SectionBCell(color_width: 1, left_sided: true, label: label, height: height)
             }
         }
     }
 }
 
-struct SectionBRowPreview:PreviewProvider {
-    
-    static var previews: some View {
-        testing()
-    }
-}
-
-struct testing:View {
-    
-    @State var offset:CGFloat = 0
-    
-    var body: some View {
-        VStack(spacing:0) {
-            
-            UI_ScrollView(offset: $offset, content: {
-                SectionBRow(r_tz: .init(abbreviation: "GMT+1")!, height: 50)
-            }, height: 60)
-            
-            UI_ScrollView(offset: $offset, content: {
-                SectionBRow(r_tz: .init(abbreviation: "GMT+1")!, height: 50)
-            }, height: 60)        }
-    }
-}
