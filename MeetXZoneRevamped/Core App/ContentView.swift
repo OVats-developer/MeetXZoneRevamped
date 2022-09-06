@@ -33,6 +33,9 @@ struct ContentView: View {
             .sheet(isPresented: $presenter.show_adder) {
                 TimeZoneAdder()
             }
+            .sheet(isPresented: $presenter.show_wh) {
+                TimeManager()
+            }
         }
         else {
             NavigationView {

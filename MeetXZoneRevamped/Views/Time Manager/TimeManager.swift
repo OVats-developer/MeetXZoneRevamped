@@ -16,6 +16,9 @@ struct TimeManager: View {
 
     @State var sc:Color = Color.init(red: 0.3, green: 0.7, blue: 1, opacity: 0.75)
     
+    @EnvironmentObject var pref_man:PreferenceManager
+    @EnvironmentObject var pres_man:PresenterManager
+
     var body: some View {
         if #available(iOS 16, macOS 13, *)
         {
@@ -66,16 +69,27 @@ struct TimeManager: View {
             ToolbarItem(placement: .navigationBarTrailing)
             {
                 Button("Save") {
-                    print("Save")
+                    pref_man.save(sh: sh, sm: sm, eh: eh, em: em, sc: sc)
+                    pres_man.show_wh = false
                 }
             }
             
             ToolbarItem(placement: .navigationBarLeading)
             {
                 Button("Dismiss") {
-                    print("Save")
+                    DispatchQueue.main.async {
+                        pres_man.show_wh = false
+                    }
                 }
             }
+        }
+        .onAppear {
+            sh = pref_man.sh
+            eh = pref_man.eh
+            sm = pref_man.sm
+            em = pref_man.em
+            
+            sc = pref_man.sc
         }
     }
 }
@@ -83,5 +97,7 @@ struct TimeManager: View {
 struct TimeManager_Previews: PreviewProvider {
     static var previews: some View {
         TimeManager()
+            .environmentObject(PreferenceManager())
+            .environmentObject(PresenterManager())
     }
 }

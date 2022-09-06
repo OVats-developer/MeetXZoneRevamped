@@ -12,4 +12,5 @@ import Combine
 class PresenterManager:ObservableObject {
     
     @Published var show_adder:Bool = false
+    @Published var show_wh:Bool = false
 }

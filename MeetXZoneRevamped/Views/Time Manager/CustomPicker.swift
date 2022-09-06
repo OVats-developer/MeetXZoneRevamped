@@ -20,6 +20,19 @@ struct CustomPicker:UIViewRepresentable {
         picker.translatesAutoresizingMaskIntoConstraints = false
         picker.dataSource = context.coordinator
         picker.delegate = context.coordinator
+        picker.selectRow(hour, inComponent: 0, animated: true)
+        switch minute {
+        case 0:
+            picker.selectRow(0, inComponent: 1, animated: true)
+        case 15:
+            picker.selectRow(1, inComponent: 1, animated: true)
+        case 30:
+            picker.selectRow(2, inComponent: 1, animated: true)
+        case 45:
+            picker.selectRow(3, inComponent: 1, animated: true)
+        default:
+            picker.selectRow(0, inComponent: 1, animated: true)
+        }
         return picker
     }
     
@@ -27,9 +40,7 @@ struct CustomPicker:UIViewRepresentable {
         return .init(owner: self)
     }
     
-    func updateUIView(_ uiView: UIPickerView, context: Context) {
-        print("Update")
-    }
+    func updateUIView(_ uiView: UIPickerView, context: Context) {}
 }
 
 class CustomPickerCoordinator:NSObject, UIPickerViewDelegate, UIPickerViewDataSource
@@ -86,6 +97,6 @@ class CustomPickerCoordinator:NSObject, UIPickerViewDelegate, UIPickerViewDataSo
 struct CustomPicker_preview:PreviewProvider {
     
     static var previews: some View {
-        CustomPicker(hour: .constant(2), minute: .constant(30))
+        CustomPicker(hour: .constant(2), minute: .constant(15))
     }
 }

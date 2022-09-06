@@ -64,6 +64,7 @@ class UIScrollViewCoordinator:NSObject, UIScrollViewDelegate
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.contentOffset.y = 0
         owner.offset = scrollView.contentOffset.x
     }
     

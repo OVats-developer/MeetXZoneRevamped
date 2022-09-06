@@ -31,7 +31,9 @@ struct SideBarWrapper: View {
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button {
-                            presenter.show_adder = true
+                            DispatchQueue.main.async {
+                                presenter.show_adder = true
+                            }
                         } label: {
                             Image(systemName: "plus").resizable()
                         }
@@ -39,7 +41,7 @@ struct SideBarWrapper: View {
                     
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button {
-                            presenter.show_adder = true
+                            presenter.show_wh = true
                         } label: {
                             Image(systemName: "clock.circle").resizable()
                         }

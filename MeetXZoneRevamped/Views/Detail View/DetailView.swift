@@ -18,6 +18,8 @@ struct DetailView: View {
     
     @FetchRequest var sectionA:FetchedResults<SavedTimeZone>
     @FetchRequest var sectionB:FetchedResults<SavedTimeZone>
+    
+    @EnvironmentObject var prefman:PreferenceManager
 
     init() {
         _sectionA = FetchRequest(sortDescriptors: [],
@@ -34,7 +36,7 @@ struct DetailView: View {
         else
         {
             VStack {
-                DatePicker("Selected Date", selection: $selected_date, displayedComponents: [.date])
+                DatePicker("Selected Date", selection: $selected_date, displayedComponents: [.date]).padding(.bottom)
                 mainview()
             }
         }
@@ -46,20 +48,26 @@ struct DetailView: View {
         let topzone = timezoner(zone: sectionA.first!)
         let topname = sectionA.first!.nameofcity ?? ""
         
-        Section(topname) {
+        VStack(spacing:0) {
+            HStack {
+                Text("Reference Time Zone - \(topname)").font(.headline).padding(.bottom).frame(height:20)
+                Spacer()
+            }
             UI_ScrollView(offset: $offset, content: {
-                SectionBRow(r_tz: topzone, height: height, date: $selected_date)
+                SectionBRow(b_tz: topzone, r_tz: topzone, height: height, date: $selected_date).environmentObject(prefman)
             }, height: height)
-        }.frame(height:height)
+        }
+        .padding(.vertical, 5)
+        .frame(height:height + 35)
 
-        Divider()
+        Spacer()
         List(sectionB) { zone in
             let tz = timezoner(zone: zone)
             let section_name = zone.nameofcity ?? ""
             
             Section(section_name) {
                 UI_ScrollView(offset: $offset, content: {
-                    SectionBRow(r_tz: tz, height: height, date: $selected_date)
+                    SectionBRow(b_tz: topzone, r_tz: tz, height: height, date: $selected_date).environmentObject(prefman)
                 }, height: height)
             }
             .listRowInsets(EdgeInsets())
