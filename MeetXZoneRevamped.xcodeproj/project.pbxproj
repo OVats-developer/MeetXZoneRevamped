@@ -15,6 +15,7 @@
 		24021661286A0C7C00756034 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24021660286A0C7C00756034 /* Preview Assets.xcassets */; };
 		2411E32628C0C9E40062781E /* PresenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2411E32528C0C9E40062781E /* PresenterManager.swift */; };
 		24146B9B28C2517D00CC86C9 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24146B9A28C2517D00CC86C9 /* DetailView.swift */; };
+		241E0B6C28CBA3E600B5393C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241E0B6B28CBA3E600B5393C /* CalendarView.swift */; };
 		241EDC1828C5236100AD1F47 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241EDC1728C5236100AD1F47 /* CustomPicker.swift */; };
 		242CCD9B28C240D800473CD3 /* UI_ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242CCD9A28C240D800473CD3 /* UI_ScrollView.swift */; };
 		242DD2A828C565E500311BD7 /* SampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242DD2A728C565E500311BD7 /* SampleCell.swift */; };
@@ -49,6 +50,7 @@
 		24021660286A0C7C00756034 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2411E32528C0C9E40062781E /* PresenterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterManager.swift; sourceTree = "<group>"; };
 		24146B9A28C2517D00CC86C9 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		241E0B6B28CBA3E600B5393C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		241EDC1728C5236100AD1F47 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		242CCD9A28C240D800473CD3 /* UI_ScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI_ScrollView.swift; sourceTree = "<group>"; };
 		242DD2A728C565E500311BD7 /* SampleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleCell.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		241E0B6A28CBA3D600B5393C /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				241E0B6B28CBA3E600B5393C /* CalendarView.swift */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
 		242CCD9928C23F6B00473CD3 /* Detail View */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,6 +227,7 @@
 		24DBA5C428C2570A002FD912 /* Row Views */ = {
 			isa = PBXGroup;
 			children = (
+				241E0B6A28CBA3D600B5393C /* CalendarView */,
 				24DBA5C728C258FC002FD912 /* SectionB */,
 				242CCD9A28C240D800473CD3 /* UI_ScrollView.swift */,
 			);
@@ -323,6 +334,7 @@
 				2400585528C512DB0096FB7F /* TimeManager.swift in Sources */,
 				24FDF2E828C1882400D4B1FD /* TimeZoneAdderVM.swift in Sources */,
 				2400585728C5144A0096FB7F /* SampleRow.swift in Sources */,
+				241E0B6C28CBA3E600B5393C /* CalendarView.swift in Sources */,
 				242DD2A828C565E500311BD7 /* SampleCell.swift in Sources */,
 				24146B9B28C2517D00CC86C9 /* DetailView.swift in Sources */,
 				24DBA5C928C25926002FD912 /* SectionBRow.swift in Sources */,

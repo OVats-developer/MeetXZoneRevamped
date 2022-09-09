@@ -20,6 +20,7 @@ struct DetailView: View {
     @FetchRequest var sectionB:FetchedResults<SavedTimeZone>
     
     @EnvironmentObject var prefman:PreferenceManager
+    @EnvironmentObject var cdm:calendardata
 
     init() {
         _sectionA = FetchRequest(sortDescriptors: [],
@@ -60,7 +61,8 @@ struct DetailView: View {
         .padding(.vertical, 5)
         .frame(height:height + 35)
 
-        Spacer()
+        CalendarView(offset: $offset).frame(height: CGFloat(cdm.calendar_events.count) * 60)
+        
         List(sectionB) { zone in
             let tz = timezoner(zone: zone)
             let section_name = zone.nameofcity ?? ""
@@ -92,6 +94,7 @@ struct DetailView_Previews: PreviewProvider {
         ContentView()
             .environmentObject(searchdata())
             .environmentObject(PresenterManager())
+            .environmentObject(calendardata())
             .environment(\.managedObjectContext, cd_container.context)
     }
 }

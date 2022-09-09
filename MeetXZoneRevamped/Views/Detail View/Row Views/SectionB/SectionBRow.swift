@@ -39,8 +39,9 @@ struct SectionBRow: View {
         HStack(spacing:0) {
             ForEach(0..<24) {val in
                 let converted_date = calendar.dateBySetting(timeZone: r_tz, of: selected_date, hour: val)
+                let hour = calendar.tz_hour(timeZone: r_tz, of: selected_date, hour: val)
                 let label = df.string(from: converted_date)
-                let result = handle_calculation(val: val)
+                let result = handle_calculation(val: hour)
                 SectionBCell(color_width: result.0, left_sided: result.1, label: label, height: height)
             }
         }

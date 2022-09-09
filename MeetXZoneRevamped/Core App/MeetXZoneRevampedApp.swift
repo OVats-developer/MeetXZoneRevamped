@@ -22,6 +22,7 @@ struct MeetXZoneRevampedApp: App {
                 .environmentObject(searcher)
                 .environmentObject(presenter)
                 .environmentObject(preferences)
+                .environmentObject(calendar)
                 .environment(\.managedObjectContext, cd_container.context)
         }
     }

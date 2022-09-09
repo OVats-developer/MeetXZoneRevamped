@@ -17,7 +17,22 @@ extension Calendar {
         base_components.second = 1
         let base_date = base_components.date!
         return Calendar.current.dateComponents(in: timeZone, from: base_date).date!
-        
+    }
+    
+    
+    func tz_hour(timeZone: TimeZone, of date: Date, hour:Int) -> Int {
+        var base_components = Calendar.current.dateComponents(in: self.timeZone, from: date)
+        base_components.hour = hour
+        base_components.minute = 0
+        base_components.second = 1
+        let base_date = base_components.date!
+        return Calendar.current.dateComponents(in: timeZone, from: base_date).hour ?? 0
+    }
+
+    
+    
+    func tz_conversion(timeZone: TimeZone, of date: Date) -> Date {
+        return Calendar.current.dateComponents(in: timeZone, from: date).date!
     }
 }
 
