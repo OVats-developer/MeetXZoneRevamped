@@ -60,6 +60,10 @@ struct DetailView: View {
         }
         .padding(.vertical, 5)
         .frame(height:height + 35)
+        .onChange(of: selected_date) { newValue in
+            let events = cdm.get_events(b_tz: topzone, date: newValue)
+            cdm.calendar_events = cdm.handle_frames(btz: topzone, events: events, date: selected_date)
+        }
 
         CalendarView(offset: $offset).frame(height: CGFloat(cdm.calendar_events.count) * 60)
         

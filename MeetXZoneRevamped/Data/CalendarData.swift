@@ -30,7 +30,7 @@ class calendardata:NSObject, ObservableObject {
             Task {
                 await MainActor.run {
                     let events = self.get_events(b_tz: .current, date: .init())
-                    self.calendar_events = self.handle_frames(btz: .current, events: events)
+                    self.calendar_events = self.handle_frames(btz: .current, events: events, date: .init())
                 }
             }
         }
@@ -41,7 +41,7 @@ class calendardata:NSObject, ObservableObject {
         return UserDefaults.standard.array(forKey: "calendarIDs") as? [String]
     }
     
-    func get_events(b_tz:TimeZone ,date:Date) -> [EKEvent]
+    func get_events(b_tz:TimeZone, date:Date) -> [EKEvent]
     {
         let ids = get_calendar_ids()
         var calendars:[EKCalendar]?
@@ -56,14 +56,14 @@ class calendardata:NSObject, ObservableObject {
             if (calendars?.count == 0) {calendars = nil}
         }
         
-        let start_date = handle_start_date(btz: b_tz)
-        let end_date = handle_end_date(btz: b_tz)
+        let start_date = handle_start_date(btz: b_tz, date: date)
+        let end_date = handle_end_date(btz: b_tz, date: date)
         
         let pred = calendarstore.predicateForEvents(withStart: start_date, end: end_date, calendars: calendars)
         return calendarstore.events(matching: pred)
     }
     
-    func handle_frames(btz:TimeZone, events:[EKEvent]) -> [[calendar_rectangle]]
+    func handle_frames(btz:TimeZone, events:[EKEvent], date:Date) -> [[calendar_rectangle]]
     {
         var levels:[[calendar_rectangle]] = []
         var calendar = Calendar.current
@@ -75,7 +75,7 @@ class calendardata:NSObject, ObservableObject {
             let ek_sd = calendar.tz_conversion(timeZone: btz, of: event.startDate)
             let ek_ed = calendar.tz_conversion(timeZone: btz, of: event.endDate)
 
-            if (ek_sd < handle_start_date(btz: .current)) {continue}
+            if (ek_sd < handle_start_date(btz: .current, date: date)) {continue}
             let start_components = calendar.dateComponents([.hour,.minute], from: ek_sd)
             let end_components = calendar.dateComponents([.hour,.minute], from: ek_ed)
             
@@ -129,11 +129,10 @@ class calendardata:NSObject, ObservableObject {
     }
     
     
-    func handle_start_date(btz:TimeZone) -> Date
+    func handle_start_date(btz:TimeZone, date:Date) -> Date
     {
         var cal:Calendar = .current
-        cal.timeZone = btz
-        var current_components = cal.dateComponents(in: btz, from: .init())
+        var current_components = cal.dateComponents(in: btz, from: date)
         current_components.hour = 0
         current_components.minute = 0
         current_components.second = 0
@@ -141,11 +140,10 @@ class calendardata:NSObject, ObservableObject {
         return current_components.date!
     }
     
-    func handle_end_date(btz:TimeZone) -> Date
+    func handle_end_date(btz:TimeZone, date:Date) -> Date
     {
         var cal:Calendar = .current
-        cal.timeZone = btz
-        var current_components = cal.dateComponents(in: btz, from: .init())
+        var current_components = cal.dateComponents(in: btz, from: date)
         current_components.hour = 23
         current_components.minute = 59
         current_components.second = 59
