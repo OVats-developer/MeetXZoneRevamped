@@ -75,7 +75,7 @@ class calendardata:NSObject, ObservableObject {
             let ek_sd = calendar.tz_conversion(timeZone: btz, of: event.startDate)
             let ek_ed = calendar.tz_conversion(timeZone: btz, of: event.endDate)
 
-            if (ek_sd < handle_start_date(date: date)) {continue}
+            if (ek_sd < handle_start_date(date: date)) { continue }
             let start_components = calendar.dateComponents(in: btz, from: ek_sd)
             let end_components = calendar.dateComponents(in: btz, from: ek_ed)
 
@@ -85,6 +85,12 @@ class calendardata:NSObject, ObservableObject {
             let num_hours = CGFloat(edfz - sdfz)/60.0
             let hours = CGFloat(sdfz)/60.0
             
+            if (event.isAllDay)
+            {
+                levels.append([.init(name: title, num_hours: 23.99, level: levels.count, hour: 0, sdfz: 0, edfz: (23 * 60 + 59))])
+                continue
+            }
+            
             if (levels.count == 0) {
                 levels.append([.init(name: title, num_hours: num_hours, level: 0, hour: hours, sdfz: sdfz, edfz: edfz)])
                 continue
@@ -93,6 +99,8 @@ class calendardata:NSObject, ObservableObject {
             var placed:Bool = false
             
 
+            
+            
             for i in 0..<levels.count {
                 
                 var overlap:Bool = false
